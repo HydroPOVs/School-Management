@@ -6,10 +6,11 @@ from ABC.utils import separator
 from .student import Student
 from .faculty import Faculty
 
-class login():
+
+class Login:
     def __init__(self) -> None:
         self.clear = staticmethod(lambda: os.system('cls'))
-        
+
         separator()
         self.clear()
         header()
@@ -27,7 +28,7 @@ class login():
 
         for option, value in menu_options:
             print(f"{'For'.rjust(10)} {option.ljust(30)} -> (press {value})")
-        
+
         print()
         ch = int(input(f"Enter Your Choice: ".rjust(26)))
         if ch == 1:
@@ -37,4 +38,4 @@ class login():
         elif ch == 3:
             return
         else:
-            login()
+            Login()

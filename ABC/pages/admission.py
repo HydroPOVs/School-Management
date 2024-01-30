@@ -6,11 +6,12 @@ from ABC import database
 from ABC.pages import header
 from ABC.utils import separator
 
-class Admission():
+
+class Admission:
     def __init__(self) -> None:
         self.clear = staticmethod(lambda: os.system('cls'))
         self.HOSTEL_CHARGES = os.path.join(os.getcwd(), "ABC", "docs", "Hostel Room Type & Charge List 2024-25.pdf")
-        self.CANTEEN_CHARGES = os.path.join(os.getcwd(), "ABC", "docs", "Canteen Menu & Rate List.pdf")
+        self.CANTEEN_CHARGES = os.path.join(os.getcwd(), "ABC", "docs", "Canteen Menu & Rate List 2024-25.pdf")
 
         separator()
         self.clear()
@@ -48,9 +49,9 @@ class Admission():
                 Accounts
                 Economics
         """)
-        
+
         for i in range(5):
-            self.subjects.append(input(f"Enter Applying For Subject {i+1}: "))
+            self.subjects.append(input(f"Enter Applying For Subject {i + 1}: "))
 
         self.marks_10 = float(input("Enter Class 10th Marks: "))
         self.roll_no_12 = int(input("Enter Class 12th roll no.: "))
@@ -94,7 +95,7 @@ class Admission():
 
             ch = int(input(f"Enter Your Choice: ".rjust(26)))
             if ch in range(1, 12):
-                self.room = menu_options[ch-1][0].split(" ")[-1]
+                self.room = menu_options[ch - 1][0].split(" ")[-1]
             else:
                 print("OK, You don't use our Hostel service.")
                 self.room = 'NO'
@@ -120,7 +121,7 @@ class Admission():
             print("We are opening Canteen Menu & Rate List 2024-25.....")
 
             webbrowser.open(self.CANTEEN_CHARGES)
-    
+
             menu_options = [
                 ("Room LS", 1),
                 ("Room LM", 2),
@@ -134,7 +135,7 @@ class Admission():
 
             ch = int(input(f"Enter Your Choice: ".rjust(26)))
             if ch in range(1, 5):
-                self.lunch = menu_options[ch-1][0].split(" ")[-1]
+                self.lunch = menu_options[ch - 1][0].split(" ")[-1]
             else:
                 print("OK, You don't use our Canteen service.")
                 self.lunch = 'NO'
@@ -143,7 +144,7 @@ class Admission():
             print("OK, You don't use our Canteen service.")
             self.lunch = 'NO'
 
-        self.passwd = random.randint(0000,9999)
+        self.passwd = random.randint(0000, 9999)
         self.gen_rollno = self.rollno()
 
         self.check()
@@ -151,14 +152,14 @@ class Admission():
     def check(self):
         rol = str(self.roll_no_12)
         count = len(rol)
-        if self.marks_10 >= 75 and count== 5 :
+        if self.marks_10 >= 75 and count == 5:
             print("Congralutaions your registration form is successfully submitted !!")
             print('\n\n\n')
 
             subjects = "\n"
 
             for i, sub in enumerate(self.subjects):
-                subjects += f"{' '.rjust(10)} {' '.ljust(30)} " + f"{i+1}. {sub}" + "\n"
+                subjects += f"{' '.rjust(10)} {' '.ljust(30)} " + f"{i + 1}. {sub}" + "\n"
 
             details = [
                 ("Roll Number", self.gen_rollno),
@@ -190,22 +191,32 @@ class Admission():
 
     def note(self):
         file = open('Student_Data.txt', 'a')
-        no = self.gen_rollno-100
-        rec1 = "Studentno"+ str(no) + "-"+ '\n'
+        no = self.gen_rollno - 100
+        rec1 = "Studentno" + str(no) + "-" + '\n'
         file.write(rec1)
-        rec2="          Roll no :"+str(self.gen_rollno)+'\n'+ "          Student Name :"+self.name+'\n'+ "          Father Name :"+self.father+'\n'+ "          Mother Name :"+self.mother+'\n'+ "          Age :"+str(self.age)+'\n'+ "          Address :"+self.address+'\n'+ "          Contact No. :"+str(self.contact_num)+'\n'+ "          Subjects opt : " + ','.join(self.subjects) +'\n'+ "          Class 10th Marks :"+str(self.marks_10)+'\n'+ "          Class 12th roll no. :"+str(self.roll_no_12)+'\n'+ "          Password  :"+str(self.passwd)+'\n'+ "          Father's Occupation :"+self.father_occupation+'\n'+"          Room Type :"+self.room+'\n'+"          Lunch Type :"+self.lunch+'\n'
+        rec2 = "          Roll no :" + str(
+            self.gen_rollno) + '\n' + "          Student Name :" + self.name + '\n' + "          Father Name :" + self.father + '\n' + "          Mother Name :" + self.mother + '\n' + "          Age :" + str(
+            self.age) + '\n' + "          Address :" + self.address + '\n' + "          Contact No. :" + str(
+            self.contact_num) + '\n' + "          Subjects opt : " + ','.join(
+            self.subjects) + '\n' + "          Class 10th Marks :" + str(
+            self.marks_10) + '\n' + "          Class 12th roll no. :" + str(
+            self.roll_no_12) + '\n' + "          Password  :" + str(
+            self.passwd) + '\n' + "          Father's Occupation :" + self.father_occupation + '\n' + "          Room Type :" + self.room + '\n' + "          Lunch Type :" + self.lunch + '\n'
         file.write(rec2)
         file.close()
 
         # Backup
         file = open('Student_Data_Backup.txt', 'a')
-        rec3 = str(self.gen_rollno)+','+self.name+','+self.father+','+self.mother+','+str(self.age)+','+self.address+','+str(self.contact_num)+','+ ','.join(self.subjects) +','+str(self.marks_10)+','+str(self.roll_no_12)+','+str(self.passwd)+','+self.father_occupation+','+self.room+','+self.lunch+'\n'
+        rec3 = str(self.gen_rollno) + ',' + self.name + ',' + self.father + ',' + self.mother + ',' + str(
+            self.age) + ',' + self.address + ',' + str(self.contact_num) + ',' + ','.join(self.subjects) + ',' + str(
+            self.marks_10) + ',' + str(self.roll_no_12) + ',' + str(
+            self.passwd) + ',' + self.father_occupation + ',' + self.room + ',' + self.lunch + '\n'
         file.write(rec3)
         file.close()
 
     def feecalculator(self):
         db = database.initialize()
-        cursor= db.cursor()
+        cursor = db.cursor()
 
         fee = 0
         hostelFee = 0
@@ -232,7 +243,8 @@ class Admission():
             fee += data[0]
             canteenFee = data[0]
 
-        cmd = "INSERT INTO Student_feedetails(Roll_no, Students_name, Fees_of_subject_1, Fees_of_subject_2, Fees_of_subject_3, Fees_of_subject_4, Fees_of_subject_5, Hostel_fee, Canteen_fee, Total_Fee) VALUES({}, '{}', {}, {}, {}, {}, {}, {}, {}, {})".format(self.gen_rollno, self.name, *subjectsFee, hostelFee, canteenFee, fee)
+        cmd = "INSERT INTO Student_feedetails(Roll_no, Students_name, Fees_of_subject_1, Fees_of_subject_2, Fees_of_subject_3, Fees_of_subject_4, Fees_of_subject_5, Hostel_fee, Canteen_fee, Total_Fee) VALUES({}, '{}', {}, {}, {}, {}, {}, {}, {}, {})".format(
+            self.gen_rollno, self.name, *subjectsFee, hostelFee, canteenFee, fee)
         cursor.execute(cmd)
         db.commit()
         db.close()
@@ -242,7 +254,9 @@ class Admission():
     def basic(self):
         db = database.initialize()
         cursor = db.cursor()
-        cond = ("INSERT INTO Student_basic(Roll_no, Students_name, Fathers_name, Mothers_name, Password) VALUES({}, '{}', '{}', '{}', {})".format(self.gen_rollno, self.name, self.father, self.mother, self.passwd))
+        cond = (
+            "INSERT INTO Student_basic(Roll_no, Students_name, Fathers_name, Mothers_name, Password) VALUES({}, '{}', '{}', '{}', {})".format(
+                self.gen_rollno, self.name, self.father, self.mother, self.passwd))
         cursor.execute(cond)
         db.commit()
         db.close()
@@ -250,7 +264,10 @@ class Admission():
     def data(self):
         db = database.initialize()
         cursor = db.cursor()
-        cond = ("INSERT INTO Student_data(Roll_no, Students_name, Age, Address, Contact_No, Class_10th_Marks, Class_12th_roll_no, Fathers_Occupation) VALUES({}, '{}', {}, '{}', {}, {}, {}, '{}')".format(self.gen_rollno, self.name, self.age, self.address, self.contact_num, self.marks_10, self.roll_no_12, self.father_occupation))
+        cond = (
+            "INSERT INTO Student_data(Roll_no, Students_name, Age, Address, Contact_No, Class_10th_Marks, Class_12th_roll_no, Fathers_Occupation) VALUES({}, '{}', {}, '{}', {}, {}, {}, '{}')".format(
+                self.gen_rollno, self.name, self.age, self.address, self.contact_num, self.marks_10, self.roll_no_12,
+                self.father_occupation))
         cursor.execute(cond)
         db.commit()
         db.close()
@@ -258,7 +275,9 @@ class Admission():
     def subjectopt(self):
         db = database.initialize()
         cursor = db.cursor()
-        cond = ("INSERT INTO Student_subjectopt(Roll_no, Students_name, Subject_1, Subject_2, Subject_3, Subject_4, Subject_5 ) VALUES({}, '{}', '{}', '{}', '{}', '{}', '{}')".format(self.gen_rollno, self.name, *self.subjects))
+        cond = (
+            "INSERT INTO Student_subjectopt(Roll_no, Students_name, Subject_1, Subject_2, Subject_3, Subject_4, Subject_5 ) VALUES({}, '{}', '{}', '{}', '{}', '{}', '{}')".format(
+                self.gen_rollno, self.name, *self.subjects))
         cursor.execute(cond)
         db.commit()
         db.close()
@@ -273,8 +292,9 @@ class Admission():
 
     def studentsfee(self, fees):
         db = database.initialize()
-        cursor= db.cursor()
-        cond=("INSERT INTO Student_feedata(Roll_no, Students_name, Payable_amount) VALUES({}, '{}', {})".format(self.gen_rollno, self.name, fees))
+        cursor = db.cursor()
+        cond = ("INSERT INTO Student_feedata(Roll_no, Students_name, Payable_amount) VALUES({}, '{}', {})".format(
+            self.gen_rollno, self.name, fees))
         cursor.execute(cond)
         db.commit()
         db.close()
@@ -286,7 +306,7 @@ class Admission():
         self.marks()
         fees = self.feecalculator()
         self.studentsfee(fees)
-    
+
     def save(self):
         self.note()
         self.sql()

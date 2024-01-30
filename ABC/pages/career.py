@@ -3,17 +3,18 @@ import webbrowser
 
 from ABC.pages import header
 
-class career():
+
+class Career:
 
     def __init__(self) -> None:
         self.Employment_Form = os.path.join(os.getcwd(), "ABC", "docs", "Employment Application 2024-25.pdf")
-        
+
         header()
         print()
         self.main_page()
 
     def main_page(self):
-        print ("""
+        print("""
     Work Culture at  A B C Institute of Technology:- 
             The work culture at  A B C Institute of Technology(ABCIT) is based on simple but the most powerful philosophy – “Commitment”. This honest philosophy comes from the Founder and Chairman of the Institute. Since his erstwhile days, the Chairman has laid prime emphasis on commitment at work. Every associate at ABCIT understand the significance of commitment in bringing innovation in what one does, and acknowledges it completely. This work culture equips an employee at  A B C Institute of Technology to work with utmost dedication in whatever job is given to him/her.
 
@@ -124,19 +125,19 @@ class career():
         Leadership Opportunity
 
     Post Date      Job Id	            Designation                                        
-    Dec 03, 2019	 F0MPCHB	 Foundations Faculty	               
-    Dec 03, 2019	 AC04P	 	 Physics Faculty (Engineering)	                
-    Dec 03, 2019	 AC04C		 Chemistry Faculty (Engineering)	               
-    Dec 03, 2019	 AC04M		 Mathematics Faculty (Engineering)              
-    Dec 03, 2019	 AC05C		 Chemistry Faculty (Medical)	               
-    Dec 03, 2019	 AC05B		 Botany Faculty (Medical)	               
-    Dec 03, 2019	 AC05Z		 Zoology Faculty (Medical)	                 
-    Dec 03, 2019	 AC05P		 Physics Faculty (Medical)	               
-    Dec 03, 2019	 AE01		 Accounts Executive	                                 
-    Dec 03, 2019	 AD01		 Admin Executive	                                 
-    Dec 03, 2019	 CS01		 Counsellor	                                 
-    Dec 03, 2019	 ED01		 EDP Executive	                                 """)
-        
+    Dec 03, 2023	 F0MPCHB	 Foundations Faculty	               
+    Dec 03, 2023	 AC04P	 	 Physics Faculty (Engineering)	                
+    Dec 03, 2023	 AC04C		 Chemistry Faculty (Engineering)	               
+    Dec 03, 2023	 AC04M		 Mathematics Faculty (Engineering)              
+    Dec 03, 2023	 AC05C		 Chemistry Faculty (Medical)	               
+    Dec 03, 2023	 AC05B		 Botany Faculty (Medical)	               
+    Dec 03, 2023	 AC05Z		 Zoology Faculty (Medical)	                 
+    Dec 03, 2023	 AC05P		 Physics Faculty (Medical)	               
+    Dec 03, 2023	 AE01		 Accounts Executive	                                 
+    Dec 03, 2023	 AD01		 Admin Executive	                                 
+    Dec 03, 2023	 CS01		 Counsellor	                                 
+    Dec 03, 2023	 ED01		 EDP Executive	                                 """)
+
         print()
         menu_options = [
             ("APPLICATION FORM", "1"),
@@ -147,7 +148,7 @@ class career():
 
         for option, value in menu_options:
             print(f"{'For'.rjust(10)} {option.ljust(30)} -> (press {value})")
-        
+
         print()
         ch = int(input(f"Enter Your Choice: ".rjust(26)))
         if ch == 1:

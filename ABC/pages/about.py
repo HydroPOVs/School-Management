@@ -1,8 +1,9 @@
 from ABC.pages import header
 
+
 def about():
     header()
-    about=""" 
+    about = """ 
 About :
 
 Founded in 1867, A. B. C INSTITUTE OF TECHNOLOGY is a private, research university comprised of 13 schools and colleges. Students pursue studies in more than 120 areas leading to undergraduate, graduate and professional degrees. To date, A. B. C  has awarded more than 120,000 degrees in the arts, the sciences, and the humanities. The historic main campus sits on a hilltop in Northwest Washington blocks from the storied U Street and A. B. C  Theatre. We are two miles from the U.S. Capitol where many students intern, and scores of alumni shape national and foreign policy.A. B. C  is a leader in STEM fields. The National Science Foundation has ranked A. B. C  as the top producer of African-American undergraduates who later earn science and engineering doctoral degrees. The University also boasts nationally ranked programs in social work, business and communication sciences and disorders. In 2013, The Washington Post named A. B. C  "An Incubator for Cinematographers."

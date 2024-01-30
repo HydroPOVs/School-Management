@@ -1,2 +1,0 @@
-101,Ayush Agnihotri,Pradeep Kumar,Shashi Prabha,21,355 E.W.S. Barra-3 Janta Nagar, Kanpur,8090549705,Mathematics,Physics,Chemistry,English,Physical Education,91.4,85479,6857,Self Service,PS2,LSD
-102,Varun Agnihotri,Pradeep Kumar,Shashi Prabha,21,355 E.W.S. Barra-3 Janta Nagar, Kanpur,8090549705,Mathematics,English,Physics,Chemistry,Physical Education,91.6,25863,651,Self Service,NO,LSD

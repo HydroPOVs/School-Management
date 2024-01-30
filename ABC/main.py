@@ -1,29 +1,27 @@
 import os
 import time
 import shutil
-import random
 import webbrowser
 from datetime import date
-import matplotlib.pyplot as py
 
 from ABC.pages import (
     Admission,
-    announcement,
-    career,
+    Announcement,
+    Career,
     contact,
-    downloads,
-    login,
+    Downloads,
+    Login,
     successGraph
-)
-
-from .utils import (
-    center,
-    separator
 )
 from .pages import (
     about,
     header
 )
+from .utils import (
+    center,
+    separator
+)
+
 
 class A_B_C_INSTITUTE_OF_TECHNOLOGY:
 
@@ -38,7 +36,7 @@ class A_B_C_INSTITUTE_OF_TECHNOLOGY:
         self.main_page()
 
     def welcome(self):
-        # webbrowser.open(self.WELCOME_FILE)
+        webbrowser.open(self.WELCOME_FILE)
         pass
 
     def main_page(self):
@@ -62,59 +60,60 @@ class A_B_C_INSTITUTE_OF_TECHNOLOGY:
         self.choice()
 
     def options(self, ch: int):
-        if ch == 1:
-            self.main_page()
-        elif ch == 2:
-            about()
-            self.choice()
-        elif ch == 3:
-            Admission()
-            separator()
-            self.clear()
-            header()
-            self.choice()
-        elif ch == 4:
-            successGraph()
-            separator()
-            self.clear()
-            header()
-            self.choice()
-        elif ch == 5:
-            announcement()
-            self.choice()
-        elif ch == 6:
-            career()
-            separator()
-            self.clear()
-            header()
-            self.choice()
-        elif ch == 7:
-            downloads()
-            separator()
-            self.clear()
-            header()
-            self.choice()
-        elif ch == 8:
-            contact()
-            self.choice()
-        elif ch == 9:
-            login()
-            separator()
-            self.clear()
-            header()
-            self.choice()
-        elif ch == 10:
-            self.exit()
-        else:
-            header()
-            self.choice(capture_res=False)
-            print()
-            print("Please enter a value in between 1-10".rjust(5))
-            ch = int(input(f"{'Enter Your Choice:- '.rjust(10)}"))
-            separator()
-            self.clear()
-            self.options(ch)
-    
+        match ch:
+            case 1:
+                self.main_page()
+            case 2:
+                about()
+                self.choice()
+            case 3:
+                Admission()
+                separator()
+                self.clear()
+                header()
+                self.choice()
+            case 4:
+                successGraph()
+                separator()
+                self.clear()
+                header()
+                self.choice()
+            case 5:
+                Announcement()
+                self.choice()
+            case 6:
+                Career()
+                separator()
+                self.clear()
+                header()
+                self.choice()
+            case 7:
+                Downloads()
+                separator()
+                self.clear()
+                header()
+                self.choice()
+            case 8:
+                contact()
+                self.choice()
+            case 9:
+                Login()
+                separator()
+                self.clear()
+                header()
+                self.choice()
+            case 10:
+                self.exit()
+            case _:
+                header()
+                self.choice(capture_res=False)
+                print()
+                print("Please enter a value in between 1-10".rjust(5))
+                ch = int(input(f"{'Enter Your Choice:- '.rjust(10)}"))
+                separator()
+                self.clear()
+                self.options(ch)
+
     def choice(self, capture_res=True):
         menu_options = [
             ("HOME", "1"),
